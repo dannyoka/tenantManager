@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+	<div class="jumbotron">
+		<h1 class="display-3 text-center">Tenant List</h1>
+
+	</div>
+	<div class="container pt-2 pl-0 ml-0 bg-faded">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Tenant Name</th>
+		      <th scope="col">Move-In Date</th>
+		      <th scope="col">Term End Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for tenant in tenant_list %}
+
+		    <tr>
+		      <th scope="row">{{ tenant.pk }}</th>
+				<td>
+					<a href="{% url 'tenantManager:detail' pk=tenant.pk %}">{{ tenant.name }}</a>
+				</td>
+				<td>
+					{{ tenant.move_in_date }}
+				</td>
+				<td>
+					{{ tenant.term_end_date }}
+				</td>
+		    </tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+		<a class="btn btn-primary" href="{% url "tenantManager:create" %}" role="button">Create a New Tenant</a>
+	</div>
+
+	<div id="like_button_container"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  {% load static %}
+  <script src="{% static "components/like_button.js" %}"></script>
+
+{% endblock body_block %}

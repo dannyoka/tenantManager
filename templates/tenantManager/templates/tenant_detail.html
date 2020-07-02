@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+	
+	<div class="jumbotron">
+		<h1 class="display-3">{{ tenant.name }}</h1>
+		<p class="lead">Move-In Date: {{ tenant.move_in_date }}<br>
+						Term End Date: {{ tenant.term_end_date }}
+		</p>
+		<hr class="m-y-md">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<p class="lead">
+			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		</p>
+	</div>
+
+    
+{% endblock body_block %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+	{% for tenant in tenant_list %}
+		<h1>{{ tenant.name }}</h1>
+		
+	{% endfor %}
+
+	<button type="button" href="{% url "tenantManager:create" %}" class="btn btn-primary">Create a New Tenant</button>
+    
+{% endblock body_block %}
+
